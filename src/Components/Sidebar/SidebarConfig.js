@@ -1,7 +1,7 @@
 import {AiFillBell, AiFillCompass, AiFillHome, AiFillMessage, AiFillPlusCircle, AiFillVideoCamera, AiOutlineBell, AiOutlineCompass, AiOutlineHome, AiOutlineMessage, AiOutlinePlusCircle, AiOutlineSearch, AiOutlineVideoCamera} from 'react-icons/ai'
 import { IoPersonCircleSharp, IoPersonOutline } from 'react-icons/io5'
 export const menu=[
-    {tittle:'Home',icon:<AiOutlineHome></AiOutlineHome>,iactiveIcon:<AiFillHome></AiFillHome>},
+    {tittle:'Home',icon:<AiOutlineHome className='text-2xl mr-5'></AiOutlineHome>,iactiveIcon:<AiFillHome className='text-2xl mr-5'></AiFillHome>},
 
     {tittle:'Search',icon:<AiOutlineSearch></AiOutlineSearch>,iactiveIcon:<AiOutlineSearch></AiOutlineSearch>},
     
