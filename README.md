@@ -13,8 +13,8 @@
     <td>Done</td>
   </tr>
   <tr>
-    <td>1</td>
-    <td>Setup project</td>
+    <td>2</td>
+    <td>Front-end</td>
     <td>Done</td>
   </tr>
 </table>
