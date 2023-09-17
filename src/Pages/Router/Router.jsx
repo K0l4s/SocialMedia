@@ -1,24 +1,22 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Sidebar from '../../Components/Sidebar/Sidebar'
-import { HomePage } from '../HomePage/HomePage'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Sidebar from '../../Components/Sidebar/Sidebar';
+import HomePage from '../HomePage/HomePage'; 
 
 const App = () => {
   return (
-    <Router> 
-      <div className="flex">
-        <div>
-          <Sidebar />
-        </div>
-
-        <div>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </div>
+    <div className='flex'> 
+      
+      <div className="side">
+        <Sidebar />
       </div>
-    </Router>
-  )
-}
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;

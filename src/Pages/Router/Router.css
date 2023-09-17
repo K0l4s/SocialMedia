@@ -1,0 +1,7 @@
+.flex{
+    display: flex;
+}
+
+.side{
+    z-index: 0;
+}

@@ -1,0 +1,72 @@
+.left{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 15%;
+    background: #fafafa;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    font-size: auto;
+}
+
+.left .container{
+    display: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.logo{
+    margin: 10px 10px 10px 10px;
+}
+
+.logo :hover{
+    cursor: pointer;
+}
+
+.w-20{
+    width: 200px;
+}
+
+.mt-10{
+    margin-top: 10px;
+}
+
+.jsconfig{
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.ml-5{
+    margin-left: 5px;
+}
+
+.config-more{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 5px 5px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 30px;
+}
+
+.config-items{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 5px 5px 5px 10px;
+    border-radius: 30px;
+}
+
+.config-items:hover{
+    background: #e6e6e6;
+}
+.font-bold{
+    font-weight: bold;
+}
+
+.font-semibold{
+    font-weight: 400;
+}

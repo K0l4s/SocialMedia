@@ -1,19 +1,21 @@
 import {AiFillBell, AiFillCompass, AiFillHome, AiFillMessage, AiFillPlusCircle, AiFillVideoCamera, AiOutlineBell, AiOutlineCompass, AiOutlineHome, AiOutlineMessage, AiOutlinePlusCircle, AiOutlineSearch, AiOutlineVideoCamera} from 'react-icons/ai'
-import { IoPersonCircleSharp, IoPersonOutline } from 'react-icons/io5'
+import { IoPersonCircleSharp, IoPersonOutline} from 'react-icons/io5'
+import {RiFileSearchFill} from 'react-icons/ri'
+import './Sidebar.css'
 export const menu=[
-    {tittle:'Home',icon:<AiOutlineHome className='text-2xl mr-5'></AiOutlineHome>,iactiveIcon:<AiFillHome className='text-2xl mr-5'></AiFillHome>},
+    {title:'Home',icon:<AiOutlineHome className='jsconfig'></AiOutlineHome>,iactiveIcon:<AiFillHome className='jsconfig'></AiFillHome>},
 
-    {tittle:'Search',icon:<AiOutlineSearch></AiOutlineSearch>,iactiveIcon:<AiOutlineSearch></AiOutlineSearch>},
+    {title:'Search',icon:<AiOutlineSearch className='jsconfig'></AiOutlineSearch>,iactiveIcon:<RiFileSearchFill className='jsconfig'></RiFileSearchFill>},
     
-    {tittle:'Explore',icon:<AiOutlineCompass></AiOutlineCompass>,iactiveIcon:<AiFillCompass></AiFillCompass>},
+    {title:'Explore',icon:<AiOutlineCompass className='jsconfig'></AiOutlineCompass>,iactiveIcon:<AiFillCompass className='jsconfig'></AiFillCompass>},
 
-    {tittle:'Reels',icon:<AiOutlineVideoCamera></AiOutlineVideoCamera>,iactiveIcon:<AiFillVideoCamera></AiFillVideoCamera>},
+    {title:'Reels',icon:<AiOutlineVideoCamera className='jsconfig'></AiOutlineVideoCamera>,iactiveIcon:<AiFillVideoCamera className='jsconfig'></AiFillVideoCamera>},
 
-    {tittle:'Messages',icon:<AiOutlineMessage></AiOutlineMessage>,iactiveIcon:<AiFillMessage></AiFillMessage>},
+    {title:'Messages',icon:<AiOutlineMessage className='jsconfig'></AiOutlineMessage>,iactiveIcon:<AiFillMessage className='jsconfig'></AiFillMessage>},
 
-    {tittle:'Nofication',icon:<AiOutlineBell></AiOutlineBell>,iactiveIcon:<AiFillBell></AiFillBell>},
+    {title:'Nofication',icon:<AiOutlineBell className='jsconfig'></AiOutlineBell>,iactiveIcon:<AiFillBell className='jsconfig'></AiFillBell>},
 
-    {tittle:'Create',icon:<AiOutlinePlusCircle></AiOutlinePlusCircle>,iactiveIcon:<AiFillPlusCircle></AiFillPlusCircle>},
+    {title:'Create',icon:<AiOutlinePlusCircle className='jsconfig'></AiOutlinePlusCircle>,iactiveIcon:<AiFillPlusCircle className='jsconfig'></AiFillPlusCircle>},
 
-    {tittle:'Profile',icon:<IoPersonOutline></IoPersonOutline>,iactiveIcon:<IoPersonCircleSharp></IoPersonCircleSharp>}
+    {title:'Profile',icon:<IoPersonOutline className='jsconfig'></IoPersonOutline>,iactiveIcon:<IoPersonCircleSharp className='jsconfig'></IoPersonCircleSharp>}
 ]
