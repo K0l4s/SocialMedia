@@ -1,7 +1,10 @@
 .flex{
     display: flex;
 }
-
 .side{
-    z-index: 0;
+    width: 15%;
+    z-index: 2;
+}
+.content{
+    width: 85%;
 }

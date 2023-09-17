@@ -9,16 +9,22 @@ const Sidebar = () => {
      const [activeTab, setActiveTab] = useState();
      const navigate = useNavigate();
 
-     const handleTabClick = (tittle) => {
-          setActiveTab(tittle);
-          if (tittle === "Profile") {
+     const handleTabClick = (title) => {
+          setActiveTab(title);
+          if (title === "Profile") {
                navigate("/username");
           }
-          else if (tittle === "Home") {
+          else if (title === "Home") {
                navigate("/");
           }
-          else if (tittle === "Settings") {
-               navigate("/settings");
+          else if (title === "Messages") {
+               navigate("/messages");
+          }
+          else if (title === "Reels") {
+               navigate("/reels");
+          }
+          else if (title === "Explore") {
+               navigate("/explore");
           }
      }
 
@@ -29,10 +35,10 @@ const Sidebar = () => {
                <div className="container">
 
                     {/* Logo */}
-                    <div className="logo">
+                    <div className="logo" onClick={()=>handleTabClick("Home")}>
                          <img className="w-20" src={logo} alt="Logo" />
                     </div>
-
+                    <hr></hr>
                     {/* Menu */}
                     <div className="mt-10">
                          {menu.map((item) =>

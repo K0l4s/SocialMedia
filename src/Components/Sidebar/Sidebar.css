@@ -3,9 +3,11 @@
     top: 0;
     height: 100%;
     width: 15%;
-    background: #fafafa;
+    background: transparent;
     box-shadow: 0 1px 8px rgba(0,0,0,0.2);
     font-size: auto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .left .container{
@@ -43,10 +45,14 @@
     align-items: center;
     cursor: pointer;
     padding: 5px 5px 5px 10px;
-    margin-bottom: 10px;
+    margin-top:75%;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 30px;
+}
+
+.config-more:hover{
+    background: gray;
 }
 
 .config-items{
@@ -58,10 +64,12 @@
     cursor: pointer;
     padding: 5px 5px 5px 10px;
     border-radius: 30px;
+    transition: 0.3 ease;
 }
 
 .config-items:hover{
-    background: #e6e6e6;
+    background: #b8b0b0;
+    transform: scale(1.05);
 }
 .font-bold{
     font-weight: bold;
@@ -70,3 +78,8 @@
 .font-semibold{
     font-weight: 400;
 }
+
+.left hr{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+

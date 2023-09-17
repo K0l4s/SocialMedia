@@ -1,0 +1,72 @@
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+}
+.image{
+    width: 15%;
+    height: 15%;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.top{
+    display: flex;
+    align-items: center;
+}
+
+.row{
+    display: inline;
+    margin-left: 10%
+}
+
+.row .row_1{
+    display: flex;
+}
+
+.row .row_1 .edit{
+    margin-left: 100px;
+    background: #e6e6e6;
+    width: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.row .row_1 .edit:hover{
+    background: #e7e7e7;
+}
+.row .row_1 .setting{
+    margin-left:100px;
+    cursor: pointer;
+}
+
+.row .row_2 {
+    display: flex;
+    align-items: center;
+}
+
+.row .row_2 .ac_inf{
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+.row .row_2 .ac_inf .number{
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.name_and_bio {
+    display: inline;
+}
+
+.name_and_bio .name{
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.name_and_bio .bio{
+    margin-top: 20px;
+}
