@@ -1,0 +1,38 @@
+.newPost{
+    width: 100%;
+    background: #efefef;
+    padding: 10px;
+    border-radius: 10px;
+    height: auto;
+}
+
+.btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn button{
+    border-radius: 10px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.btn .send{
+    width: 75px;
+    top:87%;
+    right:25px;
+    background: #87ff83;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.btn p{
+    margin-left: 5px;
+}

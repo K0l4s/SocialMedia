@@ -7,6 +7,7 @@ import './Router.css';
 import ProfileImages from '../Profile/ProfileImages';
 import ProfileVideo from '../Profile/ProfileVideo';
 import ProfilePost from '../Profile/ProfilePost';
+import Messenger from '../Messenger/Messenger';
 const App = () => {
   return (
     <div className='flex'> 
@@ -21,7 +22,7 @@ const App = () => {
             <Route path="image" element={<ProfileImages />} />
             <Route path="video" element={<ProfileVideo />} />
           </Route>
-
+          <Route path='messenger' element={<Messenger/>}/>
         </Routes>
       </div>
     </div>

@@ -19,6 +19,7 @@
 
 .row{
     display: inline;
+    align-items: center;
     margin-left: 10%
 }
 

@@ -3,11 +3,8 @@
     top: 0;
     height: 100%;
     width: 15%;
-    background: transparent;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.1);
     font-size: auto;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 .left .container{
