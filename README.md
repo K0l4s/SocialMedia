@@ -1,3 +1,4 @@
+
 <h1>Social Media Project</h1>
 <h2>Overview</h2>
 <p>Hello! This is a simple project!</p>
@@ -35,3 +36,4 @@
     <th>none</th>
   </tr>
 </table>
+<image src="https://github.com/K0l4s/SocialMedia/assets/87256083/e1a1e2f3-8e37-423d-9298-9cf82c3837b2"></image>
