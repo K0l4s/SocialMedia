@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './ReqUserPostPart.css'
 import { IoFileTrayStacked, IoFileTrayStackedOutline } from 'react-icons/io5'
-import { AiFillCamera, AiFillFileImage, AiOutlineCamera, AiOutlineFileImage } from 'react-icons/ai'
+import {  AiFillFileImage, AiOutlineFileImage } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-
+import { PiTag, PiTagFill } from 'react-icons/pi'
 
 const ReqUserPostPart = () => {
 
@@ -11,20 +11,20 @@ const ReqUserPostPart = () => {
     const navigator = useNavigate();
     const handleTabClick = (title) => {
         setActiveTab(title);
-        if(title === 'Post'){
+        if(title === 'Posts'){
             navigator('/username/');
         }
         else if(title === 'Images'){
             navigator('/username/image');
         }
-        else if(title === 'Videos'){
-            navigator('/username/video');
+        else if(title === 'Tags'){
+            navigator('/username/tag');
         }
     }
     
     const tabs = [
         {
-            tabs: 'Post',
+            tabs: 'Posts',
             icon: <IoFileTrayStackedOutline></IoFileTrayStackedOutline>,
             iactionIcon: <IoFileTrayStacked></IoFileTrayStacked>
         },
@@ -34,9 +34,9 @@ const ReqUserPostPart = () => {
             iactionIcon: <AiFillFileImage></AiFillFileImage>
         },
         {
-            tabs: 'Videos',
-            icon: <AiOutlineCamera></AiOutlineCamera>,
-            iactionIcon: <AiFillCamera></AiFillCamera>
+            tabs: 'Tags',
+            icon: <PiTag></PiTag>,
+            iactionIcon: <PiTagFill></PiTagFill>
         }
     ]
 

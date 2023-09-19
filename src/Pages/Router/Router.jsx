@@ -4,10 +4,10 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 import HomePage from '../HomePage/HomePage'; 
 import Profile from '../Profile/Profile';
 import './Router.css';
-import ProfileImages from '../Profile/ProfileImages';
-import ProfileVideo from '../Profile/ProfileVideo';
-import ProfilePost from '../Profile/ProfilePost';
 import Messenger from '../Messenger/Messenger';
+import ProfileTag from '../../Components/ProfileComponents/ProfileTag'
+import ProfilePost from '../../Components/ProfileComponents/ProfilePost'
+import ProfileImages from '../../Components/ProfileComponents/ProfileImages'
 const App = () => {
   return (
     <div className='flex'> 
@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/username' element={<Profile/>}>
             <Route path="" element={<ProfilePost />} />
             <Route path="image" element={<ProfileImages />} />
-            <Route path="video" element={<ProfileVideo />} />
+            <Route path="tag" element={<ProfileTag />} />
           </Route>
           <Route path='messenger' element={<Messenger/>}/>
         </Routes>

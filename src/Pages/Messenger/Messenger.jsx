@@ -2,7 +2,9 @@ import React from 'react'
 
 const Messenger = () => {
   return (
-    <div>Messenger</div>
+    <div>
+      
+    </div>
   )
 }
 

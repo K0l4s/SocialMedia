@@ -8,14 +8,17 @@ import {
   ModalCloseButton,
   Button,
   Textarea,
+  ModalFooter,
 } from '@chakra-ui/react';
-import { IoDocumentAttachOutline } from 'react-icons/io5'
 import { AiOutlineSend } from 'react-icons/ai';
 import './Create.css'
+import { MdOutlineAddLocationAlt, MdOutlineAddPhotoAlternate } from 'react-icons/md';
 
-const Create = ({ isOpen, onClose }) => {
+const Create = ({ isOpen, onClose, image, newPostLoca }) => {
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+
+    <Modal isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Create new post</ModalHeader>
@@ -23,23 +26,43 @@ const Create = ({ isOpen, onClose }) => {
         <hr />
         <ModalBody>
           <div className="place">
-            <Textarea className='newPost' name="newPost" id="1" cols="30" rows="10" placeholder="What's on your mind?"></Textarea>
+            <Textarea className='CnewPost' name="newPost" id="1" cols="100" rows="5" placeholder="What's on your mind?"></Textarea>
+            {image ? (
+              <div className="addPhoto">
+                <img
+                  src="https://play-lh.googleusercontent.com/qlIDfFiFKSeoawoihQlWv-BtnWrGphURKx3EfrnrqfO5toLDDvERs38E7AMqkX_euA"
+                  alt="post"
+                />
+              </div>
+            ) : null}
             <hr />
-            <div className="btn">
-              <Button colorScheme='purple'>
-                <IoDocumentAttachOutline></IoDocumentAttachOutline>
-                <p>Images/Videos</p>
-              </Button>
-              <ModalCloseButton className='send' >
-                <AiOutlineSend></AiOutlineSend>
-                <p>Send</p>
-                <div className="close">
-
-                </div>
-              </ModalCloseButton>
+            {newPostLoca ? (
+              <div className="checkin">
+                <p>Location: </p>
+                <p className="place_name"> <a href='https://maps.app.goo.gl/J1vtuRvGTaRJr2zY6'>Hanoi, VietNam</a></p>
+                <Button className='locationButton'>Chọn vị trí của bạn</Button>
+                <hr />
+              </div>) : null}
+            <div className="Cbutton">
+              {image ? null : (
+                <Button colorScheme='blue' className="Cbutton_2">
+                  <MdOutlineAddPhotoAlternate size={25}></MdOutlineAddPhotoAlternate>
+                  <p>Add Photo</p>
+                </Button>)}
+              {newPostLoca ? null : (
+                <Button colorScheme='green' className="Cbutton_2">
+                  <MdOutlineAddLocationAlt size={25}></MdOutlineAddLocationAlt>
+                  <p >Check in</p>
+                </Button>)}
             </div>
           </div>
         </ModalBody>
+        <ModalFooter>
+          <Button colorScheme='green' className="Cbutton_2" onClick={onClose}>
+            <AiOutlineSend size={25}></AiOutlineSend>
+            <p>Send</p>
+          </Button>
+        </ModalFooter>
       </ModalContent >
     </Modal >
   );

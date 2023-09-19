@@ -1,6 +1,9 @@
-.items hr{
+.items .content{
     margin-top: 10px;
-    margin-bottom: 10px;
+    width: 70%;
+    background: transparent;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 *{
     background: transparent;

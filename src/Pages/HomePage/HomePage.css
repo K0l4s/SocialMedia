@@ -1,0 +1,57 @@
+.main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.0975);
+    border-radius: 5px;
+}
+.main .NewPost{
+    width: 70%;
+    background: #fff;
+    padding: 10px; 
+    margin: 10px 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.0975);
+    border-radius: 10px;
+    display: inline;
+}
+.main .NewPost .action{
+    width: 100%;
+}
+.main .NewPost hr{
+    margin: 10px 0;
+}
+.main .NewPost .image_and_title {
+    width: 100%;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    padding: 10px;
+}
+.main .NewPost .image_and_title .p_images{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.0975);
+    margin-right: 10px;
+}
+
+.main .NewPost .actionButton{
+    width: 100%;
+    display: absolute;
+    justify-items: space-between;
+    margin-top: 5px;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+.main .NewPost .actionButton Button{
+    padding: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: absolute;
+    width: 30%;
+}

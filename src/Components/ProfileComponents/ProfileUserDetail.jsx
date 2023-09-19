@@ -33,9 +33,9 @@ export const ProfileUserDetail = () => {
                         </div>
                     </div>
                     <div className="name_and_bio">
-                            <p className="name">Huỳnh Trung Kiên</p>
-                            <p className="bio">Cau be hoc Cong Nghe Thong Tin 🍀</p>
-                        </div>
+                        <p className="name">Huỳnh Trung Kiên</p>
+                        <p className="bio">Lorem Ipsum is simply dummy text of like Aldus PageMaker including versions of Lorem Ipsum</p>
+                    </div>
                 </div>
             </div>
         </div>
