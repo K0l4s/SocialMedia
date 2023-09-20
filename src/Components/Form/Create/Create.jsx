@@ -9,6 +9,7 @@ import {
   Button,
   Textarea,
   ModalFooter,
+  Select,
 } from '@chakra-ui/react';
 import { AiOutlineSend } from 'react-icons/ai';
 import './Create.css'
@@ -40,7 +41,12 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
               <div className="checkin">
                 <p>Location: </p>
                 <p className="place_name"> <a href='https://maps.app.goo.gl/J1vtuRvGTaRJr2zY6'>Hanoi, VietNam</a></p>
-                <Button className='locationButton'>Chọn vị trí của bạn</Button>
+                <Select placeholder='Select option'>
+                  <option value='option1'>Option 1</option>
+                  <option value='option2'>Option 2</option>
+                  <option value='option3'>Option 3</option>
+                </Select>
+                <Button className='locationButton'>Không tìm thấy vị trí của bạn?</Button>
                 <hr />
               </div>) : null}
             <div className="Cbutton">

@@ -4,8 +4,8 @@ import { IoReorderThreeOutline } from 'react-icons/io5'
 import { menu } from './SidebarConfig'
 import './Sidebar.css'
 import { useNavigate } from 'react-router-dom'
-import Create from '../../Pages/Form/Create/Create'
-import Nofications from '../../Pages/Form/Nofications/Nofications'
+import Create from '../../Components/Form/Create/Create'
+import Nofications from '../../Components/Form/Nofications/Nofications'
 const Sidebar = () => {
   const currentURL = window.location.pathname; // Lấy phần path của URL hiện tại
   const urlSegments = currentURL.split('/'); // Chia path thành các phần tử trong mảng

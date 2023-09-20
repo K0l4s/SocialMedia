@@ -1,0 +1,81 @@
+._post {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    background: #fff;
+}
+._post .post_top{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+._post .post_top .post_avatar img{
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+._post .post_top .post_avatar img:hover{
+    opacity: 0.8;
+}
+._post hr{
+    border: 1px solid #eee;
+    width: 90%;
+    margin: 10px auto;
+}
+._post .post_top .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+._post .post_top .info h3{
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+._post .post_top .info p{
+    text-decoration: none;
+}
+
+._post ._main{
+    display: inline;
+    align-items: center;
+    text-align: center;
+}
+
+._post ._main img{
+    width: 80%;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+._post .action{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+._post .action .action_button{
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+._post .action .action_button p{
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
