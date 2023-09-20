@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/K0l4s/SocialMedia",
+  "homepage": "https://k0l4s.github.io/SocialMedia",
   "name": "social-net",
   "version": "0.1.0",
   "private": true,
@@ -29,8 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" ,
-    "build:staging": "env-cmd -f .env.staging npm run build"
+    "deploy": "gh-pages -d build" 
   },
   "eslintConfig": {
     "extends": [
