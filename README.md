@@ -37,3 +37,7 @@
   </tr>
 </table>
 <image src="https://github.com/K0l4s/SocialMedia/assets/87256083/e1a1e2f3-8e37-423d-9298-9cf82c3837b2"></image>
+<h1>Front-end</h1>
+</a>  </p><a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a>
+<h1>Back-end</h1>
+<h1>Framework</h1>
