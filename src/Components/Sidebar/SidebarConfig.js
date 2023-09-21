@@ -13,7 +13,7 @@ export const menu=[
 
     {title:'Messages',icon:<AiOutlineMessage className='jsconfig'></AiOutlineMessage>,iactiveIcon:<AiFillMessage className='jsconfig'></AiFillMessage>},
 
-    {title:'Nofication',icon:<AiOutlineBell className='jsconfig'></AiOutlineBell>,iactiveIcon:<AiFillBell className='jsconfig'></AiFillBell>},
+    {title:'Notification',icon:<AiOutlineBell className='jsconfig'></AiOutlineBell>,iactiveIcon:<AiFillBell className='jsconfig'></AiFillBell>},
 
     {title:'Create',icon:<AiOutlinePlusCircle className='jsconfig'></AiOutlinePlusCircle>,iactiveIcon:<AiFillPlusCircle className='jsconfig'></AiFillPlusCircle>},
 

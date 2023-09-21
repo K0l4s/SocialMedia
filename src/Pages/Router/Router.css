@@ -3,11 +3,11 @@
     display: flex;
 }
 .side{
-    width: 15%;
+    width: 226px;
     z-index: 2;
+    
 }
 .content{
-    width: 85%;
     background: linear-gradient(0deg, #10cdf8, #006dc6);
     animation:ease-in-out 1s;
 }

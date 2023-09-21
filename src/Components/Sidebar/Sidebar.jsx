@@ -29,6 +29,9 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const onClose = () => { setIsOpen(false); setActiveTab(currentTab) };
 
+  const [isOpenNof, setIsOpenNof] = useState(false);
+  const onCloseNof = () => { setIsOpenNof(false); setActiveTab(currentTab)}
+
   const handleTabClick = (title) => {
     setActiveTab(title);
     if (title === "Profile") {
@@ -43,6 +46,8 @@ const Sidebar = () => {
       navigate("/explore");
     } else if (title === "Create") {
       setIsOpen(true);
+    } else if (title === "Notification") {
+      setIsOpenNof(true);
     }
   };
 
@@ -74,7 +79,7 @@ const Sidebar = () => {
         <IoReorderThreeOutline />
         <p className="ml-5">More</p>
       </div>
-      <Nofications/>
+      <Nofications isOpen={isOpenNof} onClose={onCloseNof}/>
       <Create isOpen={isOpen} onClose={onClose} />
 
     </div>

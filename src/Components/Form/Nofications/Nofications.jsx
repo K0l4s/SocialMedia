@@ -12,11 +12,11 @@ import {
 
 import React from 'react'
 
-const Nofications = (isOpen, onOpen, onClose) => {
+const Nofications = ({isOpen, onClose}) => {
   return ( 
     <div>
       <Drawer
-        isOpen={false}
+        isOpen={isOpen}
         placement='left'
         onClose={onClose}
       >

@@ -11,6 +11,12 @@ export const HomePage = () => {
     const onClose = () => { setIsOpen(false); }
     const [image, setImage] = useState(false);
     const [newPostLoca, setNewPostLoca] = useState(false);
+
+    const posts = [];
+    for (let i = 0; i < 100; i++) {
+        posts.push(<Post key={i} onImage={true} likeCount={100} commentCount={1000}/>)
+    };
+
     return (
         <div className="main">
             <div className="NewPost">
@@ -34,7 +40,10 @@ export const HomePage = () => {
             </div>
             <Create isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca} />
             <div className="post_list">
-                <Post like={true} onImage={true} postAuthor="Nguyễn Hữu Dũng" commentCount={100} likeCount={50}></Post>
+
+                {posts}
+
+
                 <Post like={false} postAuthor="Chương Dương" commentCount={100} likeCount={50}></Post>
                 <Post like={false} onImage={true} postAuthor="Nghệ Hà" commentCount={10000} likeCount={10}></Post>
                 <Post like={true} postAuthor="Nguyễn Hữu Dũng" commentCount={100} likeCount={50}></Post>
