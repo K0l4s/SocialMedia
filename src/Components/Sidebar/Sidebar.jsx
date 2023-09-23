@@ -40,8 +40,6 @@ const Sidebar = () => {
       navigate("/");
     } else if (title === "Messages") {
       navigate("/messenger");
-    } else if (title === "Reels") {
-      navigate("/reels");
     } else if (title === "Explore") {
       navigate("/explore");
     } else if (title === "Create") {

@@ -4,6 +4,7 @@ import { FaRegComments } from 'react-icons/fa';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { Button } from '@chakra-ui/react';
 
+   
 const Post = ({ like, onImage, post_content, post_image, likeCount, commentCount, postAuthor }) => {
     const [isLike, setIsLike] = useState(like);
     const [currentLikeCount, setCurrentLikeCount] = useState(likeCount);
@@ -16,7 +17,7 @@ const Post = ({ like, onImage, post_content, post_image, likeCount, commentCount
         }
         setIsLike(!isLike);
     }
-
+  
     return (
         <div className="_post">
             <div className="post_top">

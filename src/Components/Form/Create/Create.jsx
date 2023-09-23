@@ -31,7 +31,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
             {image ? (
               <div className="addPhoto">
                 <img
-                  src="https://play-lh.googleusercontent.com/qlIDfFiFKSeoawoihQlWv-BtnWrGphURKx3EfrnrqfO5toLDDvERs38E7AMqkX_euA"
+                  src="https://cdn-icons-png.flaticon.com/512/1829/1829589.png"
                   alt="post"
                 />
               </div>
