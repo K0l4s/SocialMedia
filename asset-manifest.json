@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/SocialMedia/static/css/main.5e727796.css",
-    "main.js": "/SocialMedia/static/js/main.e3c6366c.js",
-    "static/js/787.337ed954.chunk.js": "/SocialMedia/static/js/787.337ed954.chunk.js",
-    "static/media/profile.jpg": "/SocialMedia/static/media/profile.8c0cb2393b70d906ae4c.jpg",
-    "index.html": "/SocialMedia/index.html",
-    "main.5e727796.css.map": "/SocialMedia/static/css/main.5e727796.css.map",
-    "main.e3c6366c.js.map": "/SocialMedia/static/js/main.e3c6366c.js.map",
-    "787.337ed954.chunk.js.map": "/SocialMedia/static/js/787.337ed954.chunk.js.map"
+    "main.css": "/topwayvn/static/css/main.f741d0a0.css",
+    "main.js": "/topwayvn/static/js/main.720e2a3b.js",
+    "static/js/787.337ed954.chunk.js": "/topwayvn/static/js/787.337ed954.chunk.js",
+    "static/media/profile.jpg": "/topwayvn/static/media/profile.8c0cb2393b70d906ae4c.jpg",
+    "index.html": "/topwayvn/index.html",
+    "main.f741d0a0.css.map": "/topwayvn/static/css/main.f741d0a0.css.map",
+    "main.720e2a3b.js.map": "/topwayvn/static/js/main.720e2a3b.js.map",
+    "787.337ed954.chunk.js.map": "/topwayvn/static/js/787.337ed954.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e727796.css",
-    "static/js/main.e3c6366c.js"
+    "static/css/main.f741d0a0.css",
+    "static/js/main.720e2a3b.js"
   ]
 }
