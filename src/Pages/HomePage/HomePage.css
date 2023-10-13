@@ -10,7 +10,6 @@
 }
 .main .NewPost{
     width: 70%;
-    background: #fff;
     padding: 10px; 
     margin: 10px 0;
     box-shadow: 0 0 0 1px rgba(0,0,0,.0975);
@@ -58,6 +57,9 @@
 
 .main .post_list{
     width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
+}
+.main .main_Tittle h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
 }

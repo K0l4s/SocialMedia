@@ -1,8 +1,8 @@
 .tabs{
     display: flex;
     justify-content: space-around;
+    background: #ffffff72;
     align-items: center;
-    background-color: #fff;
     width: 100%;
     border-radius: 15px;
     width: 70%;

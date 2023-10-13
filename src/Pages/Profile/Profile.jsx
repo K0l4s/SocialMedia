@@ -13,9 +13,9 @@ export const Profile = () => {
             <ReqUserPostPart />
             <div className="content">
                 <Routes>
-                    <Route path="/" element={<ProfilePost />} />
-                    <Route path='/image' element={<ProfileImages />} />
-                    <Route path='/tag' element={<ProfileTag />} />
+                    <Route path="/:userID" element={<ProfilePost />} />
+                    <Route path=':userID/image' element={<ProfileImages />} />
+                    <Route path=':userID/tag' element={<ProfileTag />} />
                 </Routes>
             </div>
         </div>

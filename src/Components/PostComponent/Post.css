@@ -3,6 +3,9 @@
     height: auto;
     border-radius: 15px;
     background: #fff;
+    padding: 10px;
+    margin-bottom: 30px;
+    color-scheme: light;
     transition: transform 0.3s ease;
 }
 ._post .post_top{
@@ -79,4 +82,8 @@
     font-size: 14px;
     font-weight: bold;
     
+}
+._post:hover{
+    transform: scale(1.01);
+    cursor: pointer;
 }

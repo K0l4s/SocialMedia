@@ -1,85 +1,53 @@
-.image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
-    
-}
-.image{
-    width: 15%;
-    height: 15%;
-    margin-top: 1%;
-    margin-left: 5%;
-    margin-bottom:5px;
-}
 .top{
-    display: flex;
-    align-items: center;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
-    border-radius: 15px;
-    background-color: #fff;
     width: 70%;
     margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 1%;
+    margin-top:1%;
     margin-bottom: 1%;
-}
-
-.row{
-    display: inline;
-    align-items: center;
-    margin-left: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.row .row_1{
-    display: flex;
-}
-
-.row .row_1 .edit{
-    margin-left: 100px;
-    background: #e6e6e6;
-    width: 100px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.row .row_1 .edit:hover{
-    background: #e7e7e7;
-}
-.row .row_1 .setting{
-    margin-left:100px;
-    cursor: pointer;
-}
-
-.row .row_2 {
     display: flex;
     align-items: center;
+    box-shadow: 0px 0px 0.75px 0px rgba(0,0,0,0.75);
+}
+.top .image img{
+    margin-top:7%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0px 0px 0px 5px rgba(29, 17, 17, 0.75);
+}
+.top .row{
+    text-align: center;
+}
+.top .row .name{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.top .row .username{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top:2%
 }
 
-.row .row_2 .ac_inf{
-    margin-right: 100px;
-    margin-top: 10px;
+.top .row .row_2{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.row .row_2 .ac_inf .number{
-    font-weight: bold;
-    margin-right: 5px;
+.top .row .row_2 .ac_inf{
+    margin: 10px;
+    display: grid;
 }
-
-.name_and_bio {
-    display: inline;
+.top .row .bio{
+    margin:10px;
+    font-size: 1.1rem;
+    font-weight: 200;
 }
-
-.name_and_bio .name{
-    margin-top: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.name_and_bio .bio{
-    margin-top: 20px;
+.top .image img:hover{
+    transform: scale(1.05);
 }

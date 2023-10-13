@@ -11,14 +11,16 @@ const ReqUserPostPart = () => {
     const navigator = useNavigate();
     const handleTabClick = (title) => {
         setActiveTab(title);
+        const currentURL = window.location.href;
+        const userID = currentURL.split('/')[4];
         if(title === 'Posts'){
-            navigator('/username/');
+            navigator('/username/'+userID+'/');
         }
         else if(title === 'Images'){
-            navigator('/username/image');
+            navigator('/username/'+userID+'/image');
         }
         else if(title === 'Tags'){
-            navigator('/username/tag');
+            navigator('/username/'+userID+'/tag');
         }
     }
     

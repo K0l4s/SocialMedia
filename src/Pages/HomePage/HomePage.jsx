@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react'
+import { Button, Card } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import profileI from '../../images/profile.jpg'
 import './HomePage.css'
@@ -12,18 +12,31 @@ export const HomePage = () => {
     const [image, setImage] = useState(false);
     const [newPostLoca, setNewPostLoca] = useState(false);
 
-
+    let avatarURL = profileI;
+    let userName = null;
     const posts = [];
     for (let i = 0; i < 100; i++) {
-        posts.push(<Post key={i} onImage={true} likeCount={100} commentCount={1000}/>)
+        posts.push(<Post key={i} onImage={true} likeCount={100} commentCount={1000} />)
     };
+    const userDataJSON = localStorage.getItem('userData');
+    if (userDataJSON) {
+        // Parse dữ liệu JSON thành đối tượng JavaScript
+        const userData = JSON.parse(userDataJSON);
+
+        // Truy cập thuộc tính 'avatarURL' trong userData
+        avatarURL = userData.avatarURL;
+        if (userData.userName != null)
+            userName = userData.userName;
+        if (avatarURL == null) { avatarURL = profileI };
+    }
 
     return (
         <div className="main">
-            <div className="NewPost">
+            {userName !=null ?
+            <Card className="NewPost">
                 <div className="image_and_title">
 
-                    <img className='p_images' src={profileI} alt="profile" />
+                    <img className='p_images' src={avatarURL} alt="profile" />
                     <h1>CREATE YOUR NEW POST</h1>
                 </div>
                 <hr />
@@ -38,8 +51,11 @@ export const HomePage = () => {
                         <p>Check in</p>
                     </Button>
                 </div>
-            </div>
+            </Card> : null}
             <Create isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca} />
+            <div className="main_Tittle">
+                <h1 >Các bài viết nổi bật</h1>
+            </div>
             <div className="post_list">
 
                 {posts}
