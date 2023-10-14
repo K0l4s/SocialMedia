@@ -14,13 +14,13 @@ const ReqUserPostPart = () => {
         const currentURL = window.location.href;
         const userID = currentURL.split('/')[4];
         if(title === 'Posts'){
-            navigator('/username/'+userID+'/');
+            navigator('/profile/'+userID+'/');
         }
         else if(title === 'Images'){
-            navigator('/username/'+userID+'/image');
+            navigator('/profile/'+userID+'/image');
         }
         else if(title === 'Tags'){
-            navigator('/username/'+userID+'/tag');
+            navigator('/profile/'+userID+'/tag');
         }
     }
     

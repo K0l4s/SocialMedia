@@ -1,10 +1,12 @@
-import { Box, ButtonGroup, Button, Input } from '@chakra-ui/react'
+import { Box, ButtonGroup, Button, Input, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import axios from 'axios';
+import Cookies from 'js-cookie';
 const Login = () => {
+  const toast = useToast()
   const [data, setData] = useState([]);
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
@@ -13,8 +15,7 @@ const Login = () => {
     setEmail(event.currentTarget.value)
   }
   const providerPassword = (event) => {
-    setPassword(event.currentTarget.value)
-  }
+    setPassword(event.currentTarget.value)}
   const auth = getAuth();
   const login = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -41,6 +42,14 @@ const Login = () => {
             };
             localStorage.setItem('userData', JSON.stringify(userData));
             setData(userData);
+            toast({
+              position:'bottom-right',
+              title: 'Login successfully.',
+              description: "You're login successfully.",
+              status: 'success',
+              duration: 3000,
+              isClosable: true,
+            })
             navigate("/home");
           })
           .catch(error => {

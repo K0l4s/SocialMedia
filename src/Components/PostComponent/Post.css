@@ -10,6 +10,8 @@
 }
 ._post .post_top{
     display: flex;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
     padding: 10px;
 }
@@ -62,7 +64,14 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
-
+._post .city{
+    font-size: 12px;
+    color:rgb(65, 68, 233);
+}
+._post .city:hover{
+    color:rgb(1, 83, 160);
+    font-size: bold;
+}
 ._post .action{
     display: flex;
     flex-direction: row;
@@ -86,4 +95,9 @@
 ._post:hover{
     transform: scale(1.01);
     cursor: pointer;
+}
+
+._post h3:hover{
+    text-decoration: underline;
+    color:rgb(0, 132, 255)
 }

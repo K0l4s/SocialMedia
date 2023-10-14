@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import logo from '../../images/profile.jpg';
+import React, { useState, useEffect } from 'react';
 import './ProfileUserDetail.css';
 import { Button, Card } from '@chakra-ui/react';
 import axios from 'axios';
 
+const avatarDefault = 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png';
 export const ProfileUserDetail = () => {
     const userID = window.location.href.split('/')[4];
     const [userData, setUserData] = useState(null);
-    const avatarURL = useRef(logo);
+    let avatarURL = avatarDefault;
     useEffect(() => {
         const requestOptions = {
             method: 'GET',
@@ -26,7 +26,6 @@ export const ProfileUserDetail = () => {
                     "lastName": response.data.lastName,
                     "userName": response.data.userName,
                 })
-                avatarURL.current = response.data.avatarURL;
             })
             .catch(error => {
                 // Handle any errors here
@@ -37,7 +36,10 @@ export const ProfileUserDetail = () => {
         // Render loading or error message here while data is being fetched.
         return <div>Loading...</div>;
     }
-
+    if(userData.avatarURL === null)
+        avatarURL = avatarDefault;
+    else
+        avatarURL = userData.avatarURL;
     return (
         <div>
             <Card className="top">

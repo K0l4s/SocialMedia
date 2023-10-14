@@ -6,9 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import Create from '../../Components/Form/Create/Create'
 import Nofications from '../../Components/Form/Nofications/Nofications'
 import { getAuth, signOut } from "firebase/auth";
+import { Switch, useToast } from '@chakra-ui/react'
 
 
 const Sidebar = () => {
+  const toast = useToast();
   const currentURL = window.location.pathname; // Lấy phần path của URL hiện tại
   const urlSegments = currentURL.split('/'); // Chia path thành các phần tử trong mảng
   const currentSub = urlSegments[1];
@@ -58,6 +60,14 @@ const Sidebar = () => {
       const auth = getAuth();
       signOut(auth).then(() => {
         localStorage.removeItem("userData");
+        toast({
+          position:'bottom-right',
+          title: 'Logout successfully.',
+          description: "You're logout successfully.",
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        })
         navigate("/signin");
       }).catch((error) => {
       });
@@ -73,7 +83,7 @@ const Sidebar = () => {
         <div className="logo" onClick={() => handleTabClick("Home")}>
           <img className="w-20" src="https://i.ibb.co/QkmDvRW/a1c08598-d175-48b4-a39e-2f9c66b0d55a.jpg" alt="Logo" />
         </div>
-        <hr></hr>
+        <hr/>
         {/* Menu */}
         <div className="mt-10">
           {menu.map((item) => (

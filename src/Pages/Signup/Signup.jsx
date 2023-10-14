@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import { Box, Button, Input } from '@chakra-ui/react';
+import { Box, Button, Input, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import app from '../../Components/firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import axios from 'axios';
 
 const Signup = () => {
+    const toast = useToast()
     const navigate = useNavigate();
     const [email, setEmail] = useState(''); // Sử dụng useState để quản lý trạng thái email
     const [password, setPassword] = useState(''); // Sử dụng useState để quản lý trạng thái password
@@ -61,6 +62,14 @@ const Signup = () => {
                     .then(data => console.log(data));
 
                 localStorage.setItem('userData', JSON.stringify(layload));
+                toast({
+                    position:'bottom-right',
+                    title: 'Account created.',
+                    description: "We've created your account for you.",
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                  })
                 navigate("/home")
             })
             .catch((error) => {
