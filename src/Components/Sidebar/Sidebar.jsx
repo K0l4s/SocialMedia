@@ -67,6 +67,7 @@ const Sidebar = () => {
           status: 'success',
           duration: 3000,
           isClosable: true,
+          
         })
         navigate("/signin");
       }).catch((error) => {

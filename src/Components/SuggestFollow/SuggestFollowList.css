@@ -1,0 +1,18 @@
+.sgList {
+  width: 100%;
+  /* Độ rộng của khung chứa danh sách */
+  overflow: hidden;
+  display: flex;
+  /* Hiển thị danh sách người dùng theo chiều ngang */
+  flex-direction: row;
+}
+
+.sgList .slide-buttons{
+  position: absolute;
+  top: 355px;
+  z-index: 999;
+  opacity: 0.9;
+}
+.sgList .right{
+  right: 150px;
+}

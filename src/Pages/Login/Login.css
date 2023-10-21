@@ -1,50 +1,108 @@
-.login .box{
-    width: 30%;
-    height: auto;
-    background-color: #fff;
+
+.logos{
+    width: 60%;
+}
+.logos img{
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    opacity: 90%;
+}
+.login {
+    margin:100px 0 0 350px;
+    width: 50%;
+    position: absolute;
+    height: auto;
+    display: flex;
+    flex-direction: row;  
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, rgba(255, 255, 255, 0) 70%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 90%;
+    transition: all 0.5s ease-in-out;
+    animation: loginBoxShow 1.5s ease-in-out forwards; 
+}
+.login:hover{
+    box-shadow: 0 0 1000px 10000px rgba(182, 182, 182, 0.5);
+}
+
+.login .box{
+    width: 70%;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5%;
-    margin: 10%;
-    margin-left:60%;
-    transition: all 0.5s ease-in-out;
-}
-
-.login .tittle{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0px;
-}
-
-.login .signup{
-    color:rgb(44, 82, 171);
-    cursor: pointer;
     
 }
 
-.login .signup:hover{
-    text-decoration: underline;
-}
 
-.login .box:hover{
-    box-shadow: 0px 0px 1000px 1000px rgba(39, 18, 232, 0.5);
-    background: #080949;
-    color:aliceblue;
-}
-
-.login .box:hover .signup{
-    color: #fff;
-}
-
-.login .signupBox input{
+.login .box .signupBox{
     width: 100%;
     height: auto;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5px 0px;
+    align-items:first baseline;
+    padding: 15px;
+}
+.login .box .signupBox .input{
+    width: 100%;
+    height: 40px;
+    font-size: 13px;
+}
+
+.login .tittle{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+    text-shadow: 2px 2px 2px rgb(255, 255, 255);
+}
+
+.login .button{
+    width: 235px;
+    padding: 10px;
+}
+
+.login .signup{
+    color:#01478e;
+}
+
+.login .signup:hover{
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.cover{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    
+}
+.cover .backdrop{
+    position: absolute;
+    background-image: url(https://images.hdqwalls.com/wallpapers/looking-far-away-4k-lb.jpg);
+    width: 100%;
+    height: 100%;
+    animation: coverMove 50s infinite ease;
+    background-position: center;
+}
+
+
+/* Animation */
+@keyframes loginBoxShow{
+    0%{
+        translate: 100%;
+    }
+    100%{
+        translate: 0%;
+    }
+}
+
+@keyframes coverMove{
+    0%,100%{
+        /* Hình chuyển động không làm tăng kích thước  */
+        background-size: 100%;
+        opacity: 1;
+    }
+    50%{
+        background-size: 200%;
+        opacity: 0.9;
+    }
 }

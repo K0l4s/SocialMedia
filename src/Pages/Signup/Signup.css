@@ -1,47 +1,5 @@
-.login .box{
-    width: 30%;
-    height: auto;
-    background-color: #fff;
+.login{
+    background-color:rgb(211, 143, 143);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease-in-out;
-}
-
-.login .tittle{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0px;
-}
-
-.login .signup{
-    color:rgb(44, 82, 171);
-    cursor: pointer;
-    
-}
-
-.login .signup:hover{
-    text-decoration: underline;
-}
-
-.login .box:hover{
-    box-shadow: 0px 0px 1000px 1000px rgba(39, 18, 232, 0.5);
-    background: #080949;
-    color:aliceblue;
-}
-
-.login .box:hover .signup{
-    color: #fff;
-}
-
-.login .signupBox input{
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5px 0px;
+    padding: 20px;
 }

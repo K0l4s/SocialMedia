@@ -1,4 +1,4 @@
-.place .CnewPost{
+.place .CnewPost {
     width: 100%;
     background: #efefef;
     padding: 10px;
@@ -6,19 +6,19 @@
     height: auto;
 }
 
-.place .Cbutton{
+.place .Cbutton {
     width: 100%;
     display: absolute;
     justify-content: space-between;
     margin-top: 10px;
 }
 
-.place .Cbutton .Cbutton_2{
+.place .Cbutton .Cbutton_2 {
     width: 100%;
     margin: 5px 0;
 }
 
-.addPhoto img{
+.addPhoto img {
     width: 50px;
     height: 50px;
     object-fit: cover;
@@ -26,12 +26,13 @@
     margin: 10px 0;
 }
 
-.place .checkin .place_name{
+.place .checkin .place_name {
     font-weight: bold;
     text-decoration: underline;
     color: #1d4efc;
 }
-.place .checkin{
+
+.place .checkin {
     width: 100%;
     display: absolute;
     align-items: center;
@@ -39,16 +40,48 @@
     padding: 10px;
 }
 
-.place .checkin .locationButton{
+.place .checkin .locationButton {
     width: 100%;
     margin-top: 10px;
 }
 
-.place hr{
+.place hr {
     margin: 10px 0;
 }
 
-.place .addPhoto img:hover{
+.place .addPhoto img:hover {
     cursor: pointer;
+    opacity: 0.5;
+}
+
+.place .addPhoto img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.place .addPhoto .addPhotoInput {
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #337ab7;
+    color: transparent;
+    border: none;
+    cursor: pointer;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/019/858/734/non_2x/picture-flat-color-outline-icon-free-png.png');
+    background-position: center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+
+.place .addPhoto .addPhotoInput:hover {
     opacity: 0.5;
 }

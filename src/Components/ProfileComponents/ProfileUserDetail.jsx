@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProfileUserDetail.css';
-import { Button, Card } from '@chakra-ui/react';
+import { Button, Card, CircularProgress } from '@chakra-ui/react';
 import axios from 'axios';
 
 const avatarDefault = 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png';
@@ -34,7 +34,7 @@ export const ProfileUserDetail = () => {
     }, [userID]);
     if (!userData) {
         // Render loading or error message here while data is being fetched.
-        return <div>Loading...</div>;
+        return <CircularProgress className='loading' isIndeterminate color='green.300' />;
     }
     if(userData.avatarURL === null)
         avatarURL = avatarDefault;

@@ -10,6 +10,7 @@ import ProfilePost from '../../Components/ProfileComponents/ProfilePost'
 import ProfileImages from '../../Components/ProfileComponents/ProfileImages'
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
+import Explore from '../PhotosNetwork/PhotosNetwork';
 const App = () => {
     const location = useLocation();
     const userDataJSON = localStorage.getItem('userData');
@@ -22,7 +23,7 @@ const App = () => {
     }
     return (
         <div className="">
-        {(location.pathname !== "/signup" && location.pathname !== "/signin") && (userName != null) ?
+        {(location.pathname !== "/signup" && location.pathname !== "/signin") ?
         <div className='flex'>
             <div className="side">
                 <Sidebar />
@@ -38,6 +39,7 @@ const App = () => {
                         <Route path=":userID/tag" element={<ProfileTag />} />
                     </Route>
                     <Route path='messenger' element={<Messenger />} />
+                    <Route path='explore' element={<Explore />} />
                 </Routes>
             </div>
         </div> 

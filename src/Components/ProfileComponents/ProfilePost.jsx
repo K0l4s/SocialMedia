@@ -30,7 +30,7 @@ const ProfilePost = () => {
   console.log(postIDData);
   const posts = [];
   for (let i = 0; i < postIDData.length; i++) {
-    posts.push(<Post loading="lazy" like={false} postAuthor="Chương Dương" commentCount={100} likeCount={50} postID={postIDData[i]}></Post>)
+    posts.push(<Post loading="lazy" commentAvailable={true} commentCount={100} postID={postIDData[i]}></Post>)
   };
   return (
     <div>

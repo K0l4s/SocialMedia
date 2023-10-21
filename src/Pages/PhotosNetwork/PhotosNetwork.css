@@ -1,0 +1,38 @@
+.photosNetwork h1{
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.photosNetwork .welcome{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    margin-left: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.photosNetwork ._text{
+    text-align: center;
+}
+
+.photoList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+.photoList img{
+    width: 300px;
+    height: auto;
+    max-height: 600px;
+    margin:5px;
+    object-fit: cover;
+    object-position: center;
+}

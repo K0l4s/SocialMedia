@@ -1,0 +1,64 @@
+.photoCard{
+    transition: all 0.2s ease-in-out;
+    margin:10px;
+}
+.photoCard .photo{
+    width: 300px;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.photoCard:hover{
+    z-index: 999;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.photoCard .buttonGroup{
+    position: absolute;
+    top:45%;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+}
+
+.photoCard .lastName{
+    display: none;
+    position: absolute;
+    top:10px;
+    right: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ff3a6e;
+    background: #fff;
+    border-radius: 5px;;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.photoCard:hover .buttonGroup{
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.photoCard:hover .lastName{
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.8;
+    }
+}

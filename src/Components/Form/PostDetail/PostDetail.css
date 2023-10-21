@@ -1,0 +1,35 @@
+
+
+.place{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.viewPost_body{
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.viewPost_footer .input input{
+    border-radius: 30px;
+    background: #ff939336;
+    padding: 10px;
+    width: 90%;
+    margin-right: 5px;
+}
+
+.viewPost_footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: aliceblue;
+}
+
+.viewPost_footer .input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
