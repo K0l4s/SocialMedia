@@ -11,6 +11,7 @@ import ProfileImages from '../../Components/ProfileComponents/ProfileImages'
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import Explore from '../PhotosNetwork/PhotosNetwork';
+import Search from '../Search/Search';
 const App = () => {
     const location = useLocation();
     const userDataJSON = localStorage.getItem('userData');
@@ -38,6 +39,7 @@ const App = () => {
                         <Route path=":userID/image" element={<ProfileImages />} />
                         <Route path=":userID/tag" element={<ProfileTag />} />
                     </Route>
+                    <Route path='search' element={<Search />} />
                     <Route path='messenger' element={<Messenger />} />
                     <Route path='explore' element={<Explore />} />
                 </Routes>

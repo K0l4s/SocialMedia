@@ -24,6 +24,9 @@ const Sidebar = () => {
   } else if (currentSub === "username") {
     currentTab = "Profile"
   }
+  else if (currentSub === "search") {
+    currentTab = "Search"
+  }
   const [activeTab, setActiveTab] = useState(currentTab);
 
 
@@ -53,6 +56,8 @@ const Sidebar = () => {
       navigate("/explore");
     } else if (title === "Create") {
       setIsOpen(true);
+    } else if (title === "Search") {
+      navigate("/search");
     } else if (title === "Notification") {
       setIsOpenNof(true);
     } else if (title === "Logout") {

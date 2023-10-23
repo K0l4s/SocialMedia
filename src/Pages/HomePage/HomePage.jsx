@@ -4,10 +4,7 @@ import React, { useEffect, useState } from 'react'
 import './HomePage.css'
 import Post from '../../Components/PostComponent/Post'
 import axios from 'axios'
-import { auth } from '../../Components/firebase.jsx'
 import CreatePost from '../../Components/CreatePost/CreatePost'
-import LoadingPost from '../../Components/PostComponent/LoadingPost'
-import SuggestFollow from '../../Components/SuggestFollow/SuggestFollow'
 import SuggestFollowList from '../../Components/SuggestFollow/SuggestFollowList'
 const fetchData = () => {
   const requestOptions = {
