@@ -1,0 +1,43 @@
+.addlocation{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 15%;
+    background-color: #ff7575;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius:10px;
+}
+.addlocation h1{
+    font-size: 30px;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.addlocation .input{
+    font-size: 20px;
+    color: #000000;
+    padding:10px;
+    font-weight: bold;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.addlocation .input input{
+    width: 100%;
+    height: 50px;
+    outline: none;
+    padding:10px;
+    border-radius: 10px;
+    background: #ffffffb4;
+}
+
+.addlocation .cha_button{
+    width: 60%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-left: 20%;
+    padding: 10px;
+}

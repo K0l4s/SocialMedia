@@ -5,33 +5,46 @@ import './HomePage.css'
 import Post from '../../Components/PostComponent/Post'
 import axios from 'axios'
 import CreatePost from '../../Components/CreatePost/CreatePost'
-import SuggestFollowList from '../../Components/SuggestFollow/SuggestFollowList'
-const fetchData = () => {
-  const requestOptions = {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  };
-
-  return axios.get('http://localhost:8081/posts/findAllPostID', requestOptions);
-};
 
 
 export const HomePage = () => {
+
+
   const [postIDData, setPostIDData] = useState([]);
+  const [indexPostPage, setIndexPostPage] = useState(0);
+  const pageSize = 10;
+
+  const fetchData = () => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    console.log("Data: ", indexPostPage);
+    return axios.get('http://localhost:8081/posts/recommnedPost?start=' + indexPostPage + '&&pageSize=' + pageSize, requestOptions);
+  };
 
   useEffect(() => {
     fetchData()
       .then(response => {
         setPostIDData(response.data);
+        setIndexPostPage(indexPostPage + 1);
       })
       .catch(error => {
         console.error('Lỗi khi tải dữ liệu postID: ', error);
       });
   }, []);
-  const posts = [];
-  for (let i = 0; i < postIDData.length; i++) {
-    posts.push(<Post loading="lazy" commentAvailable={true} commentCount={100} postID={postIDData[i]}></Post>)
-  };
+
+  const nextPost = () => {
+    fetchData()
+      .then(response => {
+        setPostIDData([...postIDData, ...response.data]);
+        setIndexPostPage(indexPostPage + 1);
+      })
+      .catch(error => {
+        console.error('Lỗi khi tải dữ liệu postID: ', error);
+      });
+  }
+
 
 
   let userName = null;
@@ -44,25 +57,28 @@ export const HomePage = () => {
     if (userData.userName != null)
       userName = userData.userName;
   }
-
   return (
     <div className="main">
 
       {userName != null ?
         <CreatePost></CreatePost> : null}
       <div className="main_Tittle">
-        <h1>Gợi ý follow</h1>
-        <div className="suggestFlList">
-          <SuggestFollowList/>
-        </div>
-      </div>
-      <div className="main_Tittle">
         <h1 >Các bài viết nổi bật</h1>
       </div>
       <div className="post_list">
-        {postIDData.length === 0 ? <h3 align="center">Không có bài viết nào</h3> : posts}
+        {postIDData.length === 0 ? <h3 align="center">Không có bài viết nào</h3> : (
+          postIDData.map((postID, index) => (
+            <Post
+              key={index}
+              loading="lazy"
+              commentAvailable={true}
+              commentCount={100}
+              postID={postID}
+            />
+          ))
+        )}
       </div>
-      <Button colorScheme='green' padding={5} margin={5}>Load more...</Button>
+      <Button colorScheme='green' onClick={nextPost} padding={5} margin={5}>Load more...</Button>
     </div>
   )
 }

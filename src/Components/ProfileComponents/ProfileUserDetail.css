@@ -55,3 +55,18 @@
 .top .image img:hover{
     transform: scale(1.05);
 }
+
+.followButton{
+    position: relative;
+    left: 45%;
+    margin-top: 20px;
+    background: #c5c1c1;
+    padding: 10px;
+    border-radius:50%;
+    cursor: pointer;
+    transition: all 0.2 ease-in-out;
+}
+
+.followButton:hover{
+    background: #a8a8a8;
+}

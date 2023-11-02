@@ -6,18 +6,24 @@ import { useNavigate } from 'react-router-dom'
 import Create from '../../Components/Form/Create/Create'
 import Nofications from '../../Components/Form/Nofications/Nofications'
 import { getAuth, signOut } from "firebase/auth";
-import { Switch, useToast } from '@chakra-ui/react'
-
+import { useToast } from '@chakra-ui/react'
+import MenuTab from '../MenuTab/MenuTab'
 
 const Sidebar = () => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const changeMenuIsOpen = () => {
+    if (menuIsOpen == false)
+      setMenuIsOpen(true);
+    else
+      setMenuIsOpen(false);
+  }
+
   const toast = useToast();
   const currentURL = window.location.pathname; // Lấy phần path của URL hiện tại
   const urlSegments = currentURL.split('/'); // Chia path thành các phần tử trong mảng
   const currentSub = urlSegments[1];
   let currentTab = "Home";
-  if (currentSub === "messenger") {
-    currentTab = "Messages"
-  } else if (currentSub === "reels") {
+  if (currentSub === "reels") {
     currentTab = "Reels"
   } else if (currentSub === "explore") {
     currentTab = "Explore"
@@ -40,18 +46,16 @@ const Sidebar = () => {
   let userID = null;
   const userDataJSON = localStorage.getItem('userData');
   if (userDataJSON) {
-      const userData = JSON.parse(userDataJSON);
-      if (userData.userID != null)
+    const userData = JSON.parse(userDataJSON);
+    if (userData.userID != null)
       userID = userData.userID;
   }
   const handleTabClick = (title) => {
     setActiveTab(title);
     if (title === "Profile") {
-      navigate("/profile/"+userID);
+      navigate("/profile/" + userID);
     } else if (title === "Home") {
       navigate("/");
-    } else if (title === "Messages") {
-      navigate("/messenger");
     } else if (title === "Explore") {
       navigate("/explore");
     } else if (title === "Create") {
@@ -66,13 +70,13 @@ const Sidebar = () => {
       signOut(auth).then(() => {
         localStorage.removeItem("userData");
         toast({
-          position:'bottom-right',
+          position: 'bottom-right',
           title: 'Logout successfully.',
           description: "You're logout successfully.",
           status: 'success',
           duration: 3000,
           isClosable: true,
-          
+
         })
         navigate("/signin");
       }).catch((error) => {
@@ -89,7 +93,7 @@ const Sidebar = () => {
         <div className="logo" onClick={() => handleTabClick("Home")}>
           <img className="w-20" src="https://i.ibb.co/QkmDvRW/a1c08598-d175-48b4-a39e-2f9c66b0d55a.jpg" alt="Logo" />
         </div>
-        <hr/>
+        <hr />
         {/* Menu */}
         <div className="mt-10">
           {menu.map((item) => (
@@ -105,13 +109,13 @@ const Sidebar = () => {
       </div>
 
       {/* More */}
-      <div className="config-more ">
+      <div onClick={changeMenuIsOpen} className="config-more ">
         <FiSettings />
         <p className="ml-5">More</p>
       </div>
       <Nofications isOpen={isOpenNof} onClose={onCloseNof} />
       <Create isOpen={isOpen} onClose={onClose} />
-
+      <MenuTab isOpen={menuIsOpen} onClose={changeMenuIsOpen} />
     </div>
   );
 };

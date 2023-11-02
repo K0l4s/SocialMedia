@@ -69,6 +69,9 @@ const PostDetail = ({ isOpen, onClose, postID }) => {
         .then(response => {
           console.log(response);
           console.log(commentData.length);
+          const newComment = response.data;
+          const localUser = JSON.parse(localStorage.getItem('userData'));
+          newComment.user = localUser;
           setCommentData([...commentData, response.data])
           setInputComment("");
           document.getElementById("myInput").value = "";

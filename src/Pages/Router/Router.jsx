@@ -4,14 +4,16 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 import HomePage from '../HomePage/HomePage';
 import Profile from '../Profile/Profile';
 import './Router.css';
-import Messenger from '../Messenger/Messenger';
-import ProfileTag from '../../Components/ProfileComponents/ProfileTag'
 import ProfilePost from '../../Components/ProfileComponents/ProfilePost'
 import ProfileImages from '../../Components/ProfileComponents/ProfileImages'
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import Explore from '../PhotosNetwork/PhotosNetwork';
 import Search from '../Search/Search';
+import ResetPassword from '../Password/ResetPassword';
+import ChangeInfoUser from '../ChangeInfoUser/ChangeInfoUser';
+import PostPage from '../PostPage/PostPage';
+import AddLocation from '../AddLocation/AddLocation';
 const App = () => {
     const location = useLocation();
     const userDataJSON = localStorage.getItem('userData');
@@ -37,11 +39,13 @@ const App = () => {
                     <Route path='/profile/' element={<Profile />}>
                         <Route path=":userID" element={<ProfilePost />} />
                         <Route path=":userID/image" element={<ProfileImages />} />
-                        <Route path=":userID/tag" element={<ProfileTag />} />
                     </Route>
+                    <Route path='/post/:postID' element = {<PostPage/>}/>
                     <Route path='search' element={<Search />} />
-                    <Route path='messenger' element={<Messenger />} />
                     <Route path='explore' element={<Explore />} />
+                    <Route path="resetpass" element={<ResetPassword />} />
+                    <Route path='changeinfo' element={<ChangeInfoUser/>}/>
+                    <Route path='location' element={<AddLocation/>}/>
                 </Routes>
             </div>
         </div> 

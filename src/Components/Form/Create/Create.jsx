@@ -26,10 +26,28 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [isCheckingIn, setIsCheckingIn] = useState(false);
+  const [isImage, setIsImage] = useState(false);
+  const [city, setCity] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
   const toast = useToast();
+
+  const toggleCheckin = () => {
+    setIsCheckingIn(!isCheckingIn);
+    console.log(isCheckingIn);
+  };
+
+  const toggleImage = () => {
+    setIsImage(!isImage);
+    console.log(isImage);
+  };
 
   const providerContent = (event) => {
     setContent(event.target.value);
+  };
+
+  const providerCity = (event) => {
+    setSelectedCity(event.target.value);
   };
 
   const handleFileChange = (event) => {
@@ -90,6 +108,9 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
         imageURL: imageURL,
         createDay: dateTime,
         content: content,
+        city:{
+          cityID: selectedCity
+        }
       };
       console.log(imageURL);
       const requestOptions = {
@@ -147,6 +168,26 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
     }
   };
 
+  
+  const fetchCity = () => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    axios.get('http://localhost:8081/city/all', requestOptions)
+      .then(response => {
+        if (Array.isArray(response.data)) {
+          setCity(response.data);
+          console.log('Dữ liệu like: ', response.data);
+        } 
+      })
+      .catch(error => {
+        console.error('Lỗi khi tải dữ liệu like: ', error);
+      });
+  };
+  useEffect(() => {
+    fetchCity();
+  }, []);
   return (
     <div className="">
       <Modal isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca}>
@@ -158,9 +199,9 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
           <ModalBody>
             <div className="place">
               <Textarea onChange={providerContent} className='CnewPost' name="newPost" id="1" cols="100" rows="5" placeholder="What's on your mind?"></Textarea>
-              {image ? (
+              {image === true || isImage === true ? (
                 <div className="addPhoto">
-                  {imageURL == null ? <input className="addPhotoInput" onChange={handleFileChange} type='file' /> : null  
+                  {imageURL == null ? <input className="addPhotoInput" onChange={handleFileChange} type='file' /> : null
                   }
                   {isUploading ? (
                     <span>Uploading...</span>
@@ -170,26 +211,26 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
                 </div>
               ) : null}
               <hr />
-              {newPostLoca ? (
+              {newPostLoca === true || isCheckingIn === true ? (
                 <div className="checkin">
                   <p>Location: </p>
-                  <p className="place_name"> <a href='https://maps.app.goo.gl/J1vtuRvGTaRJr2zY6'>Hanoi, VietNam</a></p>
-                  <Select placeholder='Select option'>
-                    <option value='option1'>Option 1</option>
-                    <option value='option2'>Option 2</option>
-                    <option value='option3'>Option 3</option>
+                  <Select onChange={providerCity} placeholder='Select option'>
+                    {city.map((item) => (
+                      <option key={item.cityID} value={item.cityID}>{item.cityName}</option>
+                    ))}
+
                   </Select>
                   <Button className='locationButton'>Không tìm thấy vị trí của bạn?</Button>
                   <hr />
                 </div>) : null}
               <div className="Cbutton">
-                {image ? null : (
-                  <Button colorScheme='blue' className="Cbutton_2">
+                {isImage ? null : (
+                  <Button onClick={toggleImage} colorScheme='blue' className="Cbutton_2">
                     <MdOutlineAddPhotoAlternate size={25}></MdOutlineAddPhotoAlternate>
                     <p>Add Photo</p>
                   </Button>)}
-                {newPostLoca ? null : (
-                  <Button colorScheme='green' className="Cbutton_2">
+                {isCheckingIn ? null : (
+                  <Button onClick={toggleCheckin} colorScheme='green' className="Cbutton_2">
                     <MdOutlineAddLocationAlt size={25}></MdOutlineAddLocationAlt>
                     <p >Check in</p>
                   </Button>)}
@@ -197,15 +238,15 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
             </div>
           </ModalBody>
           <ModalFooter>
-            {content === "" || content ===null ? (
-            <Button cursor={'not-allowed'} colorScheme='gray' className="Cbutton_2">
-              <AiOutlineSend size={25}></AiOutlineSend>
-              <p>Đăng bài</p>
-            </Button>) : (
-            <Button onClick={submitPost} colorScheme='green' className="Cbutton_2">
-              <AiOutlineSend size={25}></AiOutlineSend>
-              <p>Đăng bài</p>
-            </Button>)}
+            {content === "" || content === null ? (
+              <Button cursor={'not-allowed'} colorScheme='gray' className="Cbutton_2">
+                <AiOutlineSend size={25}></AiOutlineSend>
+                <p>Đăng bài</p>
+              </Button>) : (
+              <Button onClick={submitPost} colorScheme='green' className="Cbutton_2">
+                <AiOutlineSend size={25}></AiOutlineSend>
+                <p>Đăng bài</p>
+              </Button>)}
           </ModalFooter>
         </ModalContent >
       </Modal >

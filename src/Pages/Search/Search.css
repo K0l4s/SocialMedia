@@ -21,6 +21,7 @@
     position: absolute;
     transition: all 0.5s ease-in-out;
     z-index: 1;
+    cursor: pointer;
 }
 
 .search .search_Nav .input input{
@@ -45,7 +46,6 @@
 
 .search .search_content{
     margin-top: 60px;
-    min-height: 100cap;
     padding: 10px;
 }
 

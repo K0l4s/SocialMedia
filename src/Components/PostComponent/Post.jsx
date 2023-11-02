@@ -8,11 +8,13 @@ import { useNavigate } from 'react-router-dom';
 import PostDetail from '../Form/PostDetail/PostDetail';
 import LoadingPost from './LoadingPost';
 import { auth } from '../../Components/firebase'
+import { RiFlagLine } from 'react-icons/ri';
 
 // const userID = auth.currentUser.uid ;
 
 const Post = ({ like, postID, commentAvailable }) => {
     const userID = localStorage.getItem('userID');
+    const [postUserID, setPostUserID] = useState(null);
     const toggleLike = () => {
         if (isLike) {
             unlikePost();
@@ -118,9 +120,12 @@ const Post = ({ like, postID, commentAvailable }) => {
                     };
                     setAvatarURL(avatarURL);
                     setPostData(newPostData);
+                    setPostUserID(user.userID)
                     if (response.data.city) {
                         const city = response.data.city;
                         setCityName(city.cityName);
+                        setCityURL(city.cityMapURL);
+                        console.log(city.cityMapURL);
                     }
                 }
             })
@@ -153,20 +158,25 @@ const Post = ({ like, postID, commentAvailable }) => {
         content: '',
         createDay: []
     });
+    const [cityURL,setCityURL] = useState('');
     if (!postData.userID || !postData.content)
         return <LoadingPost></LoadingPost>;
     else
         return (
             <div>
+
                 <Card className="_post">
+                    <Button className="reportPost">
+                        <RiFlagLine className='rp_icon' />
+                    </Button>
                     <div className="post_top">
                         <div className="post_avatar">
                             <img loading='lazy' onClick={() => navigate("/profile/" + userID)} src={avatarURL} alt="avatar" />
                         </div>
                         <div className="info">
-                            <h3 onClick={() => navigate("/profile/" + userID)}>{postData.userID}</h3>
+                            <h3 onClick={() => navigate("/profile/" + postUserID)}>{postData.userID}</h3>
                             <p>Vào lúc: {postData.createDay[3]}:{postData.createDay[4] < 10 ? "0" + postData.createDay[4] : postData.createDay[4]} ngày {postData.createDay[2]}/{postData.createDay[1]}/{postData.createDay[0]}</p>
-                            <p className='city'><a href='https://facebook.com'> {cityName} </a></p>
+                            <p className='city'><a href={cityURL}> {cityName} </a></p>
                         </div>
                     </div>
                     <hr />
@@ -200,15 +210,16 @@ const Post = ({ like, postID, commentAvailable }) => {
 
 
                         {commentAvailable ?
-                            <Button onClick={() => setIsOpen(true)} className="action_button">
+                            <Button colorScheme='yellow' onClick={() => setIsOpen(true)} className="action_button">
                                 <FaRegComments size={25} />
                                 <p>{commentCount} bình luận</p>
                             </Button>
-                            : <Button className="action_button">
+                            : <Button colorScheme='yellow' className="action_button">
                                 <FaRegComments size={25} />
                                 <p>{commentCount} bình luận</p>
                             </Button>}
                     </div>
+
                 </Card>
                 <PostDetail isOpen={isOpen} onClose={onClose} postID={postID} />
             </div>

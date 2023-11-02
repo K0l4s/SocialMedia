@@ -1,0 +1,22 @@
+.menuTab{
+    z-index: 9999;
+    background: rgb(145, 112, 112);
+    position: fixed;
+    margin-left: 16.5%;
+    width: 15%;
+    bottom: 0px;
+}
+
+.menuTab .tabChild{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.menuTab .tabChild:hover{
+    background: #c57373;
+}

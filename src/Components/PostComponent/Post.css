@@ -27,6 +27,7 @@
 
 ._post .post_top .post_avatar img:hover{
     opacity: 0.8;
+    z-index: 90;
 }
 ._post hr{
     border: 1px solid #eee;
@@ -38,12 +39,14 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 10px;
+    z-index: 100;
 }
 
 ._post .post_top .info h3{
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 90;
 }
 
 ._post .post_top .info p{
@@ -113,4 +116,16 @@
 
 ._post .loading{
     margin-left: 50%;
+}
+
+.reportPost{
+    top:0px;
+    right: 10px; 
+    width: 50px;
+    margin-left: 95%;
+}
+
+.reportPost .rp_icon{
+    z-index: 10;
+    cursor: pointer;
 }

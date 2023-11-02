@@ -10,8 +10,6 @@ export const menu=[
     
     {title:'Explore',icon:<BiPhotoAlbum className='jsconfig'></BiPhotoAlbum>,iactiveIcon:<BiSolidPhotoAlbum className='jsconfig'></BiSolidPhotoAlbum>},
 
-    {title:'Messages',icon:<AiOutlineMessage className='jsconfig'></AiOutlineMessage>,iactiveIcon:<AiFillMessage className='jsconfig'></AiFillMessage>},
-
     {title:'Notification',icon:<AiOutlineBell className='jsconfig'></AiOutlineBell>,iactiveIcon:<AiFillBell className='jsconfig'></AiFillBell>},
 
     {title:'Create',icon:<AiOutlinePlusCircle className='jsconfig'></AiOutlinePlusCircle>,iactiveIcon:<AiFillPlusCircle className='jsconfig'></AiFillPlusCircle>},

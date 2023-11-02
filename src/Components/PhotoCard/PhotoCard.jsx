@@ -1,10 +1,14 @@
 import { Button, ButtonGroup, Card, useToast } from '@chakra-ui/react'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { FaRegComments } from 'react-icons/fa'
 import './PhotoCard.css'
 import axios from 'axios'
+import PostDetail from '../Form/PostDetail/PostDetail'
 const PhotoCard = ({postData}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const onClose = () => setIsOpen(false);
+
     const userID = localStorage.getItem('userID');
     const [isLike, setIsLike] = React.useState(false);
     const toast = useToast();
@@ -86,12 +90,13 @@ const PhotoCard = ({postData}) => {
                     {isLike ? <Button onClick={toggleLike} colorScheme='pink' className='likeButton'><AiFillHeart size={25} /></Button> 
                     : <Button onClick={toggleLike} className='likeButton'><AiOutlineHeart size={25} /></Button>}
                 
-                <Button className='commentButton'>
+                <Button onClick={()=>setIsOpen(true)} className='commentButton'>
                     <FaRegComments size={25} />
                 </Button>
             </ButtonGroup>
-            <img className="photo" src={postData.imageURL} alt={'Ảnh của: ' + postData.lastName} />
+            <img onClick={()=>setIsOpen(true)} className="photo" src={postData.imageURL} alt={'Ảnh của: ' + postData.lastName} />
             <p className='lastName'>{postData.user.lastName}</p>
+            <PostDetail isOpen={isOpen} onClose={onClose} postID={postData.postID} />
         </div>
     )
 }

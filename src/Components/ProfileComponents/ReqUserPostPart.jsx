@@ -19,9 +19,6 @@ const ReqUserPostPart = () => {
         else if(title === 'Images'){
             navigator('/profile/'+userID+'/image');
         }
-        else if(title === 'Tags'){
-            navigator('/profile/'+userID+'/tag');
-        }
     }
     
     const tabs = [
@@ -34,11 +31,6 @@ const ReqUserPostPart = () => {
             tabs: 'Images',
             icon: <AiOutlineFileImage></AiOutlineFileImage>,
             iactionIcon: <AiFillFileImage></AiFillFileImage>
-        },
-        {
-            tabs: 'Tags',
-            icon: <PiTag></PiTag>,
-            iactionIcon: <PiTagFill></PiTagFill>
         }
     ]
 
