@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './PhotosNetwork.css'
-import PhotoCard from '../../Components/PhotoCard/PhotoCard'
+import PhotoCard from '../../../Components/PhotoCard/PhotoCard'
 import axios from 'axios';
 const Explore = () => {
   const [imagePostData, setImagePostData] = useState();

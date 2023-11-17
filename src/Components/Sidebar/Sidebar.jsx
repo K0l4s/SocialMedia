@@ -10,6 +10,7 @@ import { useToast } from '@chakra-ui/react'
 import MenuTab from '../MenuTab/MenuTab'
 
 const Sidebar = () => {
+  var newPostID;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const changeMenuIsOpen = () => {
     if (menuIsOpen == false)
@@ -69,6 +70,8 @@ const Sidebar = () => {
       const auth = getAuth();
       signOut(auth).then(() => {
         localStorage.removeItem("userData");
+        localStorage.removeItem("userID");
+        localStorage.removeItem("userAvatar");
         toast({
           position: 'bottom-right',
           title: 'Logout successfully.',
@@ -114,7 +117,7 @@ const Sidebar = () => {
         <p className="ml-5">More</p>
       </div>
       <Nofications isOpen={isOpenNof} onClose={onCloseNof} />
-      <Create isOpen={isOpen} onClose={onClose} />
+      <Create isOpen={isOpen} onClose={onClose} onPostCreated={newPostID}  />
       <MenuTab isOpen={menuIsOpen} onClose={changeMenuIsOpen} />
     </div>
   );

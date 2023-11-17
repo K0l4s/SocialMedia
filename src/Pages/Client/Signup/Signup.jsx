@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Signup.css';
 import { Box, Button, Input, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import app from '../../Components/firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import axios from 'axios';
 
@@ -62,6 +61,7 @@ const Signup = () => {
                     .then(data => console.log(data));
 
                 localStorage.setItem('userData', JSON.stringify(layload));
+                localStorage.setItem('userID', JSON.stringify(user.uid));
                 toast({
                     position:'bottom-right',
                     title: 'Account created.',

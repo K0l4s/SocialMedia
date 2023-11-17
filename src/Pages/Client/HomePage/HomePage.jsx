@@ -1,16 +1,17 @@
-import { Button, Card } from '@chakra-ui/react'
+import { Button, Card, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 
 import './HomePage.css'
-import Post from '../../Components/PostComponent/Post'
+import Post from '../../../Components/PostComponent/Post'
 import axios from 'axios'
-import CreatePost from '../../Components/CreatePost/CreatePost'
+import CreatePost from '../../../Components/CreatePost/CreatePost'
 
 
 export const HomePage = () => {
 
-
+  const toast = useToast();
   const [postIDData, setPostIDData] = useState([]);
+  const [newPostList, setNewPostList] = useState([]);
   const [indexPostPage, setIndexPostPage] = useState(0);
   const pageSize = 10;
 
@@ -20,6 +21,8 @@ export const HomePage = () => {
       headers: { 'Content-Type': 'application/json' }
     };
     console.log("Data: ", indexPostPage);
+    if (postIDData.length === 0)
+      setIndexPostPage(0);
     return axios.get('http://localhost:8081/posts/recommnedPost?start=' + indexPostPage + '&&pageSize=' + pageSize, requestOptions);
   };
 
@@ -39,6 +42,15 @@ export const HomePage = () => {
       .then(response => {
         setPostIDData([...postIDData, ...response.data]);
         setIndexPostPage(indexPostPage + 1);
+        if (response.data === undefined || response.data.length === 0) {
+          toast({
+            title: "No more post",
+            description: "No more post to load",
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          })
+        }
       })
       .catch(error => {
         console.error('Lỗi khi tải dữ liệu postID: ', error);
@@ -57,12 +69,32 @@ export const HomePage = () => {
     if (userData.userName != null)
       userName = userData.userName;
   }
+  const handlePostCreated = (newPost) => {
+    setNewPostList([newPost, ...newPostList]);
+  };
   return (
     <div className="main">
-
       {userName != null ?
-        <CreatePost></CreatePost> : null}
+        <CreatePost onPostCreated={handlePostCreated} />
+        : null}
+        <div className="post_list">
+          {newPostList.length === 0 ? null :
+            (<div className="main_Tittle">
+        
+            <h1 >Bài viết mới của bạn</h1>
+          </div>) }
+            {(newPostList.map((postID, index) => (
+              <Post
+                key={index}
+                loading="lazy"
+                commentAvailable={true}
+                commentCount={100}
+                postID={postID}
+              />
+            ))
+          )} </div>
       <div className="main_Tittle">
+        
         <h1 >Các bài viết nổi bật</h1>
       </div>
       <div className="post_list">

@@ -3,14 +3,15 @@ import React, { useState } from 'react'
 import { MdOutlineAddPhotoAlternate, MdOutlineAddLocationAlt } from 'react-icons/md'
 import Create from '../../Components/Form/Create/Create'
 import './CreatePost.css'
-const CreatePost = () => {
+const CreatePost = ({ onPostCreated }) => {
+
     const [image, setImage] = useState(false);
     const [newPostLoca, setNewPostLoca] = useState(false);
     const [isOpen, setIsOpen] = useState();
     const onClose = () => { setIsOpen(false); };
     let avatarURL = 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png';
     let userName = null;
-    
+
 
     const userDataJSON = localStorage.getItem('userData');
     if (userDataJSON) {
@@ -43,7 +44,7 @@ const CreatePost = () => {
                 </Button>
             </div>
         </Card>
-            <Create isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca} /></div>
+            <Create onPostCreated={onPostCreated} isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca} /></div>
     )
 }
 

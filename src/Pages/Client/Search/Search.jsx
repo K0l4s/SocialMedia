@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Search.css'
 import { BiSearchAlt } from 'react-icons/bi'
-import UserLongCard from '../../Components/UserLongCard/UserLongCard'
+import UserLongCard from '../../../Components/UserLongCard/UserLongCard'
 
 const Search = () => {
 

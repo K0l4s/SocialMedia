@@ -9,10 +9,30 @@ import PostDetail from '../Form/PostDetail/PostDetail';
 import LoadingPost from './LoadingPost';
 import { auth } from '../../Components/firebase'
 import { RiFlagLine } from 'react-icons/ri';
+import { TbHttpDelete } from "react-icons/tb";
 
 // const userID = auth.currentUser.uid ;
 
 const Post = ({ like, postID, commentAvailable }) => {
+    const [is_show, setIs_show] = useState(true);
+    const toast = useToast();
+
+    const [isOpen, setIsOpen] = useState(false);
+    const onClose = () => setIsOpen(false);
+
+    const [isLike, setIsLike] = useState(like);
+    const [currentLikeCount, setCurrentLikeCount] = useState();
+    const [commentCount, setCommentCount] = useState(0);
+    const [cityName, setCityName] = useState('');
+    const navigate = useNavigate();
+    const [avatarURL, setAvatarURL] = useState('https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png');
+    const [postData, setPostData] = useState({
+        userID: '',
+        imageURL: '',
+        content: '',
+        createDay: []
+    });
+    const [cityURL, setCityURL] = useState('');
     const userID = localStorage.getItem('userID');
     const [postUserID, setPostUserID] = useState(null);
     const toggleLike = () => {
@@ -67,6 +87,37 @@ const Post = ({ like, postID, commentAvailable }) => {
                 })
             });
     };
+    const deletePost=() => {
+        const requestOptions = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        axios.post('http://localhost:8081/posts/delete?postID=' + postID+"&&userID="+userID, requestOptions)
+            .then(response => {
+                if (response.data) {
+                    toast({
+                        title: "Thành công",
+                        description: "Xóa bài viết thành công!",
+                        status: "success",
+                        duration: 3000,
+                        isClosable: true,
+                       
+                    });
+                    setIs_show(false);
+                    console.log("Show: "+is_show);
+                }
+            })
+            .catch(error => {
+                toast({
+                    title: "Lỗi",
+                    description: "Thao tác quá nhanh, xin hãy thử lại sau!",
+                    status: "error",
+                    duration: 3000,
+                    isClosable: true
+                })
+            });
+    };
+
     useEffect(() => {
         const requestOptions = {
             method: 'GET',
@@ -139,36 +190,41 @@ const Post = ({ like, postID, commentAvailable }) => {
             .catch(error => {
                 console.error('Lỗi khi tải dữ liệu commentID: ', error);
             });
-    }, []);
+    }, [isOpen]);
 
-    const toast = useToast();
+    const formatLikeCount = (count) => {
+        if (count === 0) {
+            return 'Thích';
+        } else if (count <= 1000) {
+            return `${count} người thích`;
+        } else if (count <= 1000000) {
+            return `${Math.floor(count / 1000)}K người thích`;
+        } else if (count <= 1000000000) {
+            return `${Math.floor(count / 1000000)}M người thích`;
+        } else if (count <= 1000000000000) {
+            return `${Math.floor(count / 1000000000)}B người thích`;
+        } else {
+            return `${count} lượt thích`;
+        }
+    };
 
-    const [isOpen, setIsOpen] = useState(false);
-    const onClose = () => setIsOpen(false);
-
-    const [isLike, setIsLike] = useState(like);
-    const [currentLikeCount, setCurrentLikeCount] = useState();
-    const [commentCount, setCommentCount] = useState(0);
-    const [cityName, setCityName] = useState('');
-    const navigate = useNavigate();
-    const [avatarURL, setAvatarURL] = useState('https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png');
-    const [postData, setPostData] = useState({
-        userID: '',
-        imageURL: '',
-        content: '',
-        createDay: []
-    });
-    const [cityURL,setCityURL] = useState('');
-    if (!postData.userID || !postData.content)
-        return <LoadingPost></LoadingPost>;
+    // if (!postData.userID || !postData.content)
+    //     return <LoadingPost></LoadingPost>;
+    // else 
+    if (!is_show) return null;
     else
         return (
             <div>
-
                 <Card className="_post">
+
                     <Button className="reportPost">
                         <RiFlagLine className='rp_icon' />
                     </Button>
+                    {postUserID === userID ?
+                        <Button onClick={deletePost} colorScheme='red' className="deletePost">
+                            <TbHttpDelete className='rp_icon' />
+                        </Button> : null}
+
                     <div className="post_top">
                         <div className="post_avatar">
                             <img loading='lazy' onClick={() => navigate("/profile/" + userID)} src={avatarURL} alt="avatar" />
@@ -191,21 +247,11 @@ const Post = ({ like, postID, commentAvailable }) => {
                         {isLike ?
                             (<Button colorScheme='pink' className="action_button" onClick={toggleLike}>
                                 <AiFillHeart size={25} />
-                                {currentLikeCount === 1 ? <p>Đã thích</p> :
-                                    currentLikeCount <= 1000 ? <p>Bạn và {currentLikeCount - 1} người khác</p> :
-                                        currentLikeCount <= 1000000 ? <p>Bạn và {Math.floor((currentLikeCount - 1) / 1000)}k người khác</p> :
-                                            currentLikeCount <= 1000000000 ? <p>Bạn và {Math.floor((currentLikeCount - 1) / 1000000)}m người khác</p> :
-                                                currentLikeCount <= 1000000000000 ? <p>Bạn và {Math.floor((currentLikeCount - 1) / 1000000000)}b người khác</p> :
-                                                    <p>{currentLikeCount} lượt thích</p>}
+                                <p>{formatLikeCount(currentLikeCount)}</p>
                             </Button>) :
                             (<Button className="action_button" onClick={toggleLike}>
                                 <AiOutlineHeart size={25} />
-                                {currentLikeCount === 0 ? <p>Chưa có lượt thích nào</p> :
-                                    currentLikeCount <= 1000 ? <p>{currentLikeCount} người thích</p> :
-                                        currentLikeCount <= 1000000 ? <p>{Math.floor((currentLikeCount) / 1000)}k người thích</p> :
-                                            currentLikeCount <= 1000000000 ? <p>{Math.floor((currentLikeCount) / 1000000)}m người thích</p> :
-                                                currentLikeCount <= 1000000000000 ? <p>{Math.floor((currentLikeCount) / 1000000000)}b người thích</p> :
-                                                    <p>{currentLikeCount} lượt thích</p>}
+                                <p>{formatLikeCount(currentLikeCount)}</p>
                             </Button>)}
 
 

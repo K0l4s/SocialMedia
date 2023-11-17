@@ -5,10 +5,10 @@ import {
     useToast,
 } from '@chakra-ui/react';
 import { AiOutlineSend } from 'react-icons/ai';
-import Post from '../../Components/PostComponent/Post';
-import Comment from '../../Components/Form/PostDetail/Comment';
+import Post from '../../../Components/PostComponent/Post';
+import Comment from '../../../Components/Form/PostDetail/Comment';
 import axios from 'axios';
-import { auth } from '../../Components/firebase';
+import { auth } from '../../../Components/firebase';
 import './PostPage.css'
 const PostPage = () => {
     // Get postID from URL

@@ -12,6 +12,7 @@ import {
   Select,
   useToast,
   Input,
+  Progress,
 } from '@chakra-ui/react';
 import { AiOutlineSend } from 'react-icons/ai';
 import './Create.css';
@@ -20,7 +21,7 @@ import axios from 'axios';
 import { storage } from '../../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 
-const Create = ({ isOpen, onClose, image, newPostLoca }) => {
+const Create = ({ isOpen, onClose, image, newPostLoca, onPostCreated }) => {
   const userID = localStorage.getItem('userID');
   const [content, setContent] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
@@ -30,6 +31,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
   const [isImage, setIsImage] = useState(false);
   const [city, setCity] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
   const toast = useToast();
 
   const toggleCheckin = () => {
@@ -48,6 +50,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
 
   const providerCity = (event) => {
     setSelectedCity(event.target.value);
+    console.log(event.target.value);
   };
 
   const handleFileChange = (event) => {
@@ -63,6 +66,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
       uploadTask.on('state_changed',
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setUploadProgress(progress);
           console.log('Upload is ' + progress + '% done');
         },
         (error) => {
@@ -90,6 +94,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
     setSelectedFile(null);
   }
   const submitPost = () => {
+    
     var today = new Date();
     var year = today.getFullYear();
     var month = (today.getMonth() + 1).toString().padStart(2, '0');
@@ -109,7 +114,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
         createDay: dateTime,
         content: content,
         city:{
-          cityID: selectedCity
+          cityID: selectedCity,
         }
       };
       console.log(imageURL);
@@ -131,13 +136,14 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
               duration: 3000,
               isClosable: true,
             });
+            onPostCreated(response.data.postID);
             onClose();
           } else {
             console.log('Lỗi khi gửi bài viết');
             toast({
               position: 'bottom-right',
               title: 'Post created.',
-              description: "Your post wasn't posted.",
+              description: "Your post wasn't posted 2.",
               status: 'error',
               duration: 3000,
               isClosable: true,
@@ -149,7 +155,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
           toast({
             position: 'bottom-right',
             title: 'Post created.',
-            description: "Your post wasn't posted.",
+            description: "Your post wasn't posted 1.",
             status: 'error',
             duration: 3000,
             isClosable: true,
@@ -190,7 +196,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
   }, []);
   return (
     <div className="">
-      <Modal isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca}>
+      <Modal isOpen={isOpen} onClose={onClose} image={image} newPostLoca={newPostLoca} onPostCreated={onPostCreated}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create new post</ModalHeader>
@@ -204,7 +210,7 @@ const Create = ({ isOpen, onClose, image, newPostLoca }) => {
                   {imageURL == null ? <input className="addPhotoInput" onChange={handleFileChange} type='file' /> : null
                   }
                   {isUploading ? (
-                    <span>Uploading...</span>
+                    <Progress value={uploadProgress} size="sm" colorScheme="teal" />
                   ) : (
                     <img src={imageURL} />
                   )}

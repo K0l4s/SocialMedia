@@ -119,12 +119,19 @@
 }
 
 .reportPost{
+    z-index: 99;
     top:0px;
     right: 10px; 
     width: 50px;
     margin-left: 95%;
 }
-
+.deletePost{
+    z-index: 99;
+    top:10px;
+    right: 10px; 
+    width: 50px;
+    margin-left: 95%;
+}
 .reportPost .rp_icon{
     z-index: 10;
     cursor: pointer;
